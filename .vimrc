@@ -21,6 +21,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tpope/vim-endwise'
+Bundle 'git://github.com/tpope/vim-fugitive.git'
 
 " Ruby
 autocmd Filetype ruby set shiftwidth=2|set softtabstop=2|set expandtab

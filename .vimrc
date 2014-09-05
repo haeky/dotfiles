@@ -54,7 +54,8 @@ set number
 
 " Display tabs and eol
 nmap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:→\ ,trail:×
+set list
 
 " Tabulation
 set tabstop=2

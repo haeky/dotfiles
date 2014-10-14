@@ -1,11 +1,12 @@
+set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-runtime macros/matchit.vim
 
 " Packages
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -21,6 +22,9 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-endwise'
 Plugin 'git://github.com/tpope/vim-fugitive.git'
+
+call vundle#end()
+filetype plugin indent on
 
 " Ruby
 autocmd Filetype ruby set shiftwidth=2|set softtabstop=2|set expandtab
@@ -42,7 +46,6 @@ let g:airline_theme='solarized'
 let g:solarized_termcolors=16
 set t_Co=256
 syntax enable
-filetype plugin indent on
 colorscheme solarized
 set background=dark
 highlight SignColumn ctermbg=8
@@ -69,6 +72,3 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 map <C-n> :NERDTreeToggle<CR>
-
-"  General settings
-set nocompatible

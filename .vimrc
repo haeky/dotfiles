@@ -1,27 +1,26 @@
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 runtime macros/matchit.vim
 
 " Packages
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'bling/vim-airline'
-Bundle 'git://github.com/altercation/vim-colors-solarized.git'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'c.vim'
-Bundle 'rodjek/vim-puppet'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'tpope/vim-endwise'
-Bundle 'git://github.com/tpope/vim-fugitive.git'
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'bling/vim-airline'
+Plugin 'git://github.com/altercation/vim-colors-solarized.git'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'rodjek/vim-puppet'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'tpope/vim-endwise'
+Plugin 'git://github.com/tpope/vim-fugitive.git'
 
 " Ruby
 autocmd Filetype ruby set shiftwidth=2|set softtabstop=2|set expandtab

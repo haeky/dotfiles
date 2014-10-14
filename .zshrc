@@ -11,5 +11,4 @@ alias be="bundle exec"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source /opt/boxen/env.sh
 unsetopt correct_all

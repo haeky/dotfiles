@@ -3,6 +3,7 @@
 	email = dang.laurent@gmail.com
 [alias]
 	co = checkout
+	fix = commit -a --amend
 [color]
 	diff = auto
 	status = auto

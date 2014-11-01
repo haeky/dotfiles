@@ -7,7 +7,9 @@ call vundle#begin()
 " Packages
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'fatih/vim-go'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
@@ -16,7 +18,6 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rodjek/vim-puppet'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'

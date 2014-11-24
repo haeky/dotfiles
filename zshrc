@@ -9,6 +9,7 @@ bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
 alias be="bundle exec"
+alias test="ruby -I test"
 
 plugins=(git)
 

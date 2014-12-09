@@ -23,6 +23,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-endwise'
 Plugin 'git://github.com/tpope/vim-fugitive.git'
+Plugin 'stephpy/vim-yaml'
 
 call vundle#end()
 filetype plugin indent on

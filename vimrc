@@ -24,6 +24,7 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'tpope/vim-endwise'
 Plugin 'git://github.com/tpope/vim-fugitive.git'
 Plugin 'stephpy/vim-yaml'
+Plugin 'vim-javascript'
 
 call vundle#end()
 filetype plugin indent on
@@ -44,6 +45,9 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_theme='solarized'
 
+" NerdCommenter
+let NERDSpaceDelims=1
+
 " Theme
 let g:solarized_termcolors=16
 set t_Co=256
@@ -52,6 +56,12 @@ colorscheme solarized
 set background=dark
 highlight SignColumn ctermbg=8
 autocmd ColorScheme * highlight clear SignColumn
+
+" CTRLP
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_mruf_relative = 1
+let g:ctrlp_mruf_exclude = '.*/tmp/.*\|.*/.git/.*'
+let g:ctrlp_max_files = 0
 
 " Line number
 set number

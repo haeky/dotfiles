@@ -13,12 +13,8 @@ do
     if [[ $f == "install.sh" ]] ; then
         continue
     fi
-    if [ -d $f ]; then
-        mkdir -p ~/.${f}
-        cp -f -r ${f}/* ~/.${f}
-    else
-        cp -f $f ~/.${f}
-    fi
+
+    ln -fs ~/dotfiles/$f ~/.${f}
 done
 
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then

@@ -25,6 +25,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'git://github.com/tpope/vim-fugitive.git'
 Plugin 'stephpy/vim-yaml'
 Plugin 'vim-javascript'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin indent on

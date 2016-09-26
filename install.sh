@@ -10,7 +10,7 @@ chsh -s /bin/zsh
 
 for f in `ls . `
 do
-    if [[ $f == "deploy.sh" ]] ; then
+    if [[ $f == "install.sh" ]] ; then
         continue
     fi
     if [ -d $f ]; then
@@ -26,7 +26,11 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 vim +BundleInstall +qall
 
-git config --global user.name "Laurent Dang"
-git config --global user.email "dang.laurent@gmail.com"
+if [ ! -d ~/fonts ]; then
+    git clone https://github.com/powerline/fonts.git ~/fonts
+    ~/fonts/install.sh
+fi
 
 zsh
+
+open solarized_dark.itermcolor

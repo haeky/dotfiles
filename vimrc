@@ -30,8 +30,16 @@ Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 filetype plugin indent on
 
+" Go
+autocmd FileType go set shiftwidth=4|set softtabstop=4|set tabstop=4|set noexpandtab|set nolist
+nmap <leader>o :GoDef<CR>
+
 " Ruby
 autocmd Filetype ruby set shiftwidth=2|set softtabstop=2|set expandtab
+
+" Javascript
+autocmd Filetype javascript set shiftwidth=2|set softtabstop=2|set expandtab
+autocmd Filetype coffeescript set shiftwidth=2|set softtabstop=2|set expandtab
 
 " Python
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab

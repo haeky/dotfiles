@@ -7,10 +7,10 @@ call vundle#begin()
 " Packages
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
 Plugin 'git://github.com/altercation/vim-colors-solarized.git'
@@ -26,6 +26,8 @@ Plugin 'git://github.com/tpope/vim-fugitive.git'
 Plugin 'stephpy/vim-yaml'
 Plugin 'vim-javascript'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -40,6 +42,7 @@ autocmd Filetype ruby set shiftwidth=2|set softtabstop=2|set expandtab
 " Javascript
 autocmd Filetype javascript set shiftwidth=2|set softtabstop=2|set expandtab
 autocmd Filetype coffeescript set shiftwidth=2|set softtabstop=2|set expandtab
+autocmd Filetype typescript set shiftwidth=2|set softtabstop=2|set expandtab
 
 " Python
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
@@ -66,11 +69,25 @@ set background=dark
 highlight SignColumn ctermbg=8
 autocmd ColorScheme * highlight clear SignColumn
 
-" CTRLP
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_mruf_relative = 1
-let g:ctrlp_mruf_exclude = '.*/tmp/.*\|.*/.git/.*'
-let g:ctrlp_max_files = 0
+" Ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" FZF
+nnoremap <c-p> :FZF<cr>
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " Line number
 set number
@@ -93,6 +110,9 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 map <C-n> :NERDTreeToggle<CR>
+
+" Exiting
+imap jk <Esc>
 
 " Disabling arrows
 inoremap  <Up>     <NOP>

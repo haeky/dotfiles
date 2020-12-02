@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+pod=`kubectl get pod | grep -v NAME | awk '{print $1}' | fzf`
+
+if [ $# -eq 0 ]; then
+  cmd="/bin/sh"
+else
+  cmd=$@
+fi
+
+kubectl exec -it "$pod" -- $cmd

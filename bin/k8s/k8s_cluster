@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+project="$(gcloud projects list | grep -v PROJECT_ID | fzf | awk '{print $1}')"
+
+clusters="$(gcloud --project "$project" container clusters list 2> /dev/null | grep RUNNING)"
+
+cluster="$(echo "$clusters" | awk '{print $1}' | fzf)"
+
+zone="$(echo "$clusters" | grep -m 1 "^$cluster" | awk '{print $2}')"
+
+gcloud --project "$project" container clusters get-credentials $cluster --zone $zone
+
+namespace="$(kubectl get namespace --all-namespaces | awk '{print $1}' | grep -v NAME | fzf)"
+
+kubectl config set-context $(kubectl config current-context) --namespace=$namespace
+
+k8s_context

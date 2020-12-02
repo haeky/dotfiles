@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+pod=`kubectl get pod | grep -v NAME | awk '{print $1}' | fzf`
+
+kubectl port-forward "$pod" $1

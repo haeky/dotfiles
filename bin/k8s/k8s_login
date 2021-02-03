@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -e
-
-k8s_exec /bin/sh --login

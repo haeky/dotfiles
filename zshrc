@@ -24,6 +24,7 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'

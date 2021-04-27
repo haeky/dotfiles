@@ -2,7 +2,6 @@ ZSH=$HOME/.oh-my-zsh
 
 export LC_ALL="en_US.UTF-8"
 export GOPATH=$HOME
-export PATH=$(ls -d $HOME/dotfiles/bin/* | tr '\n' ':'):$GOPATH/bin:$PATH
 
 ZSH_THEME="blinks"
 alias tmux="TERM=screen-256color-bce tmux"
@@ -17,6 +16,7 @@ export FZF_DEFAULT_COMMAND="ag $AG_IGNORE -g \"\""
 
 alias be="bundle exec"
 alias test="ruby -I test"
+alias shopify-dev='/Users/haeky/src/github.com/Shopify/shopify-cli-internal/bin/shopify'
 
 plugins=(git)
 
@@ -27,7 +27,7 @@ unsetopt correct_all
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
+  alias vim='nvim -u ~/.vimrc'
 fi
 
 # fco - checkout git branch/tag

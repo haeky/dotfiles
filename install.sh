@@ -13,8 +13,8 @@ if [ ! -d ~/.fzf ]; then
 fi
 
 if [ "$(uname)" != "Darwin" ]; then
-  sudo apt-get install ag
-else
+  sudo apt-get install silversearcher-ag
+fi
 
 for f in `ls . `
 do
@@ -26,17 +26,16 @@ do
 done
 
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/plugin/Vundle.vim
 fi
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 
 if [ ! -d ~/fonts ]; then
     git clone https://github.com/powerline/fonts.git ~/fonts
     ~/fonts/install.sh
 fi
 
-echo $ZSH
-ln -fs ~/dotfiles/blinks.zsh-theme $ZSH/custom/themes/
+ln -fs ~/dotfiles/blinks.zsh-theme ~/.oh-my-zsh/custom/themes/
 
 zsh
 

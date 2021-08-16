@@ -25,10 +25,9 @@ do
     ln -fs ~/dotfiles/$f ~/.${f}
 done
 
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+if [ ! -d ~/.vim/plugin/Vundle.vim ]; then
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/plugin/Vundle.vim
 fi
-vim +PluginInstall +qall
 
 if [ ! -d ~/fonts ]; then
     git clone https://github.com/powerline/fonts.git ~/fonts
@@ -36,6 +35,7 @@ if [ ! -d ~/fonts ]; then
 fi
 
 ln -fs ~/dotfiles/blinks.zsh-theme ~/.oh-my-zsh/custom/themes/
+vim +PluginInstall +qall
 
 zsh
 

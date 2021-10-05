@@ -13,7 +13,7 @@ if [ ! -d ~/.fzf ]; then
 fi
 
 if [ "$(uname)" != "Darwin" ]; then
-  sudo apt-get install silversearcher-ag
+  sudo apt-get -y install silversearcher-ag
 fi
 
 for f in `ls . `
@@ -35,7 +35,7 @@ if [ ! -d ~/fonts ]; then
 fi
 
 ln -fs ~/dotfiles/blinks.zsh-theme ~/.oh-my-zsh/custom/themes/
-vim +PluginInstall +qall
+vim -E -u NONE -S ~/.vimrc +PluginInstall +qall
 
 zsh
 

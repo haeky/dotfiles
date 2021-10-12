@@ -13,7 +13,7 @@ if [ ! -d ~/.fzf ]; then
 fi
 
 if [ "$(uname)" != "Darwin" ]; then
-  sudo apt-get -y install silversearcher-ag
+  sudo apt-get -y install ripgrep
 fi
 
 for f in `ls . `
@@ -36,7 +36,3 @@ fi
 
 ln -fs ~/dotfiles/blinks.zsh-theme ~/.oh-my-zsh/custom/themes/
 vim -E -u NONE -S ~/.vimrc +PluginInstall +qall
-
-zsh
-
-open solarized_dark.itermcolor

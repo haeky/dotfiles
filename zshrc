@@ -11,8 +11,7 @@ bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 bindkey -s '^P' 'vim $(fzf)\n'
 
-export AG_IGNORE='--ignore vendor --ignore node_modules --ignore images --ignore svg --ignore fonts --ignore git --ignore assets'
-export FZF_DEFAULT_COMMAND="ag $AG_IGNORE -g \"\""
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden"
 
 alias be="bundle exec"
 alias test="ruby -I test"

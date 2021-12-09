@@ -4,6 +4,7 @@
 [alias]
   co = checkout
   fix = commit -a --amend
+  fixup = "!git commit --fixup $(git cherry -v master $(git rev-parse --abbrev-ref HEAD) | fzf | cut -d' ' -f2)"
   fresh = "!f() { git checkout master && git pull origin master && git checkout -b \"$1\"; }; f"
   branch-name = "!git rev-parse --abbrev-ref HEAD"
   publish = "!git push -u origin $(git branch-name)"

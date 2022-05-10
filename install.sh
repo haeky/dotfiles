@@ -7,13 +7,14 @@ if [ ! -d ~/.oh-my-zsh ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 fi
 
-if [ ! -d ~/.fzf ]; then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+if ! command -v fzf &> /dev/null; then
+  apt-get -y install fzf
 fi
 
-if [ "$(uname)" != "Darwin" ]; then
-  sudo apt-get -y install ripgrep
+if [ "$SPIN" ]; then
+  if ! command -v rg &> /dev/null; then
+    apt-get -y install ripgrep
+  fi
 fi
 
 for f in `ls . `

@@ -69,8 +69,8 @@ set background=dark
 highlight SignColumn ctermbg=8
 autocmd ColorScheme * highlight clear SignColumn
 
-" Ag
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" Ripgrep
+let g:ackprg = 'rg --vimgrep --no-heading'
 
 " FZF
 nnoremap <c-p> :FZF<cr>

@@ -3,9 +3,10 @@
   email = dang.laurent@gmail.com
 [alias]
   co = checkout
+  default-branch = "!f() { if $(git rev-parse --verify master > /dev/null 2>&1); then echo master; else echo main; fi }; f"
   fix = commit -a --amend
-  fixup = "!git commit --fixup $(git cherry -v master $(git rev-parse --abbrev-ref HEAD) | fzf | cut -d' ' -f2)"
-  fresh = "!f() { git checkout master && git pull origin master && git checkout -b \"$1\"; }; f"
+  fixup = "!git commit --fixup $(git cherry -v $(git default-branch) $(git rev-parse --abbrev-ref HEAD) | fzf | cut -d' ' -f2)"
+  fresh = "!f() { git checkout $(git default-branch) && git pull origin $(git default-branch) && git checkout -b \"$1\"; }; f"
   branch-name = "!git rev-parse --abbrev-ref HEAD"
   publish = "!git push -u origin $(git branch-name)"
   clean-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
@@ -19,7 +20,7 @@
   excludesfile = /Users/haeky/.gitignore
   editor = vim
   autocrlf = input
-	commitGraph = true
+  commitGraph = true
 [apply]
   whitespace = nowarn
 [format]
@@ -29,10 +30,10 @@
 [pull]
   rebase = true
 [diff]
-	algorithm = patience
+  algorithm = patience
 [protocol]
-	version = 2
+  version = 2
 [gc]
-	writeCommitGraph = true
+  writeCommitGraph = true
 [rebase]
-	autosquash = true
+  autosquash = true

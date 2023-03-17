@@ -92,6 +92,9 @@ let g:fzf_colors =
 " Line number
 set number
 
+" Because byebug > ruby-debug
+nmap bp orequire 'pry-byebug';binding.pry<ESC>
+
 " Display tabs and eol
 nmap <leader>l :set list!<CR>
 set listchars=tab:→\ ,trail:×

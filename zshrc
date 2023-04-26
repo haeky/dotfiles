@@ -2,6 +2,7 @@ ZSH=$HOME/.oh-my-zsh
 
 export LC_ALL="en_US.UTF-8"
 export GOPATH=$HOME
+export EDITOR=vim
 
 ZSH_THEME="blinks"
 alias tmux="TERM=screen-256color-bce tmux"

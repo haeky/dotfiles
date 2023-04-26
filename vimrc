@@ -93,7 +93,7 @@ let g:fzf_colors =
 set number
 
 " Because byebug > ruby-debug
-nmap bp orequire 'pry-byebug';binding.pry<ESC>
+nmap bp orequire 'pry-byebug'; binding.pry<ESC>
 
 " Display tabs and eol
 nmap <leader>l :set list!<CR>

@@ -5,7 +5,7 @@
   co = checkout
   default-branch = "!f() { if $(git rev-parse --verify master > /dev/null 2>&1); then echo master; else echo main; fi }; f"
   fix = commit -a --amend
-  fixup = "!git commit --fixup $(git cherry -v $(git default-branch) $(git rev-parse --abbrev-ref HEAD) | fzf | cut -d' ' -f2)"
+  fixup = "!git commit --fixup $(git log -v $(git rev-parse --abbrev-ref HEAD) ^origin/$(git default-branch) | fzf | cut -d' ' -f1)"
   fresh = "!f() { git checkout $(git default-branch) && git pull origin $(git default-branch) && git checkout -b \"$1\"; }; f"
   branch-name = "!git rev-parse --abbrev-ref HEAD"
   publish = "!git push -u origin $(git branch-name)"

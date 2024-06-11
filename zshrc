@@ -22,9 +22,10 @@ unsetopt correct_all
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim -u ~/.vimrc'
-fi
+# if type nvim > /dev/null 2>&1; then
+  # alias vim='nvim -u ~/.vimrc'
+# fi
+alias vim="vi"
 
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word

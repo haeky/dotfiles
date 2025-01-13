@@ -8,12 +8,14 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 
 if ! command -v fzf &> /dev/null; then
-  apt-get -y install fzf
+  printf "Installing fzf"
+  sudo apt-get -y install fzf
 fi
 
 if [ "$SPIN" ]; then
   if ! command -v rg &> /dev/null; then
-    apt-get -y install ripgrep
+    printf "Installing ripgrep"
+    sudo apt-get -y install ripgrep
   fi
 fi
 

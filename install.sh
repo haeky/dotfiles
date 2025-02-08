@@ -3,39 +3,31 @@
 set -e
 export LC_ALL="en_US.UTF-8"
 
-if [ ! -d ~/.oh-my-zsh ]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install tmux
+  brew install neovim
+  brew install fzf
+  brew install zsh-syntax-highlighting
+  brew install pure
 fi
 
-if ! command -v fzf &> /dev/null; then
-  printf "Installing fzf"
-  sudo apt-get -y install fzf
+if [ ! -d "$HOME/.tmux/plugins" ]; then
+  mkdir -p "$HOME/.tmux/plugins"
+
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/catppuccin/"
 fi
 
-if [ "$SPIN" ]; then
-  if ! command -v rg &> /dev/null; then
-    printf "Installing ripgrep"
-    sudo apt-get -y install ripgrep
+for f in $(ls .); do
+  if [[ $f == "install.sh" ]]; then
+    continue
   fi
-fi
 
-for f in `ls . `
-do
-    if [[ $f == "install.sh" ]] ; then
-        continue
-    fi
-
-    ln -fs ~/dotfiles/$f ~/.${f}
+  if [[ $f == "config" && -d "$HOME/.config" ]]; then
+    for config in $(ls config/); do
+      ln -fs "$HOME/dotfiles/config/$config" "$HOME/.config/$config"
+    done
+  else
+    ln -fs "$HOME/dotfiles/$f" "$HOME/.${f}"
+  fi
 done
-
-if [ ! -d ~/.vim/plugin/Vundle.vim ]; then
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/plugin/Vundle.vim
-fi
-
-if [ ! -d ~/fonts ]; then
-    git clone https://github.com/powerline/fonts.git ~/fonts
-    ~/fonts/install.sh
-fi
-
-ln -fs ~/dotfiles/blinks.zsh-theme ~/.oh-my-zsh/custom/themes/
-vim -E -u NONE -S ~/.vimrc +PluginInstall +qall

@@ -8,7 +8,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   brew install neovim
   brew install fzf
   brew install zsh-syntax-highlighting
-  brew install pure
+elif [[ "$OSTYPE" == "linux"* ]]; then
+  sudo apt-get update
+  sudo apt-get install -y neovim
+  sudo apt-get install -y fzf
+  sudo apt-get install -y zsh-syntax-highlighting
+fi
+
+if [ ! -d "$HOME/.zsh/pure" ]; then
+  mkdir -p "$HOME/.zsh/pure"
+  git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 fi
 
 if [ ! -d "$HOME/.tmux/plugins" ]; then
@@ -25,7 +34,7 @@ for f in $(ls .); do
 
   if [[ $f == "config" && -d "$HOME/.config" ]]; then
     for config in $(ls config/); do
-      ln -fs "$HOME/dotfiles/config/$config" "$HOME/.config/$config"
+      ln -fs "$HOME/dotfiles/config/$config" "$HOME/.config/"
     done
   else
     ln -fs "$HOME/dotfiles/$f" "$HOME/.${f}"

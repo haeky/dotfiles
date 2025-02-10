@@ -3,6 +3,10 @@ alias vim="nvim"
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
 bindkey -s '^P' 'vim $(fzf)\n'
 
 export FZF_DEFAULT_OPTS=" \
@@ -11,10 +15,16 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --multi"
 
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
+fpath+=($HOME/.zsh/pure)
 
 autoload -U promptinit; promptinit
 prompt pure
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [[ "$OSTYPE" == "linux"* ]]; then
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

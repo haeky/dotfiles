@@ -14,3 +14,4 @@
     ~/.zsh/pure: submodules/pure
     ~/.tmux/plugins/tpm: submodules/tpm
     ~/.tmux/plugins/catppuccin/tmux: submodules/tmux-catppuccin
+    ~/.local/bin/openai_key: scripts/openai_key

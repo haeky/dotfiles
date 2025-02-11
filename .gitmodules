@@ -1,0 +1,12 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "submodules/pure"]
+	path = submodules/pure
+	url = https://github.com/sindresorhus/pure
+[submodule "submodules/tpm"]
+	path = submodules/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "submodules/tmux-catppuccin"]
+	path = submodules/tmux-catppuccin
+	url = https://github.com/catppuccin/tmux

@@ -1,0 +1,16 @@
+- defaults:
+    link:
+      force: true
+      create: true
+
+- clean: ["~"]
+
+- link:
+    ~/.tmux.conf: config/tmux.conf
+    ~/.zshrc: config/zshrc
+    ~/.gitconfig: config/gitconfig
+    ~/.config/ghostty: config/ghostty 
+    ~/.config/nvim: config/nvim 
+    ~/.zsh/pure: submodules/pure
+    ~/.tmux/plugins/tpm: submodules/tpm
+    ~/.tmux/plugins/catppuccin/tmux: submodules/tmux-catppuccin

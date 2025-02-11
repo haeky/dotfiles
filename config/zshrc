@@ -20,6 +20,7 @@ bindkey "^[[B" history-beginning-search-forward
 
 fpath+=($HOME/.zsh/pure)
 
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 autoload -U promptinit; promptinit
 prompt pure
 

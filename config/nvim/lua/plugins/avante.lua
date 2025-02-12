@@ -9,7 +9,12 @@ return {
     },
     build = "make",
     config = function()
-      local opts = { provider = "copilot" }
+      local opts = {
+        provider = "copilot",
+        behaviour = {
+          auto_apply_diff_after_generation = true,
+        },
+      }
       local has_openai_proxy_details = vim.fn.filereadable(vim.fn.expand("~/.oai-proxy-details"))
 
       if has_openai_proxy_details == 1 then

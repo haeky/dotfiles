@@ -1,1 +1,10 @@
 theme = catppuccin-macchiato 
+
+title="ghostty"
+window-height=30
+window-width=110
+
+font-family="MonoLisa Variable"
+font-size=14
+font-feature=-liga
+font-thicken=true

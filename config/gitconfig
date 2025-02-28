@@ -37,3 +37,5 @@
   writeCommitGraph = true
 [rebase]
   autosquash = true
+[include]
+  path = /Users/haeky/.config/dev/gitconfig
